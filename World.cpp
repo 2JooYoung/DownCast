@@ -18,6 +18,10 @@ UWorld::~UWorld()
 
 void UWorld::Load(std::string MapName)
 {
+	//파일 읽어서 생성.
+	//fopen,
+	//ifstream
+
 	AActor* NewActor = SpawnActor<APlayer>();
 }
 
