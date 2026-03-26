@@ -22,6 +22,8 @@ public:
 		return World;
 	}
 
+	int KeyCode;
+
 
 protected:
 	void Input();
