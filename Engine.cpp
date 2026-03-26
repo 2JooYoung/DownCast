@@ -29,10 +29,7 @@ void UEngine::Input()
 
 void UEngine::Tick()
 {
-	for (auto Actor : Actors)
-	{
-		Actor->Tick();
-	}
+
 }
 
 void UEngine::Render()
