@@ -9,51 +9,35 @@
 
 using namespace std;
 
-//gloabl variable, 전역 변수
-int Value = 1;
-
-class Static
+class Singleton
 {
-public:
-	Static()
+private:
+	Singleton()
 	{
-		Static::Count++;
+
 	}
 
-	virtual ~Static()
+	static Singleton* Instance;
+
+public: 
+	static Singleton* GetInstance()
 	{
-		Static::Count--;
-	}
+		if (Instance == nullptr)
+		{
+			Instance = new Singleton();
+		}
 
-	//예외
-	//정적 변수
-	static int Count;
-
-	int Value;
-
-	//정적 함수
-	static void Display()
-	{
-//		Value = 1; X
-		cout << Count << endl;
+		return Instance;
 	}
 };
 
-int Static::Count = 0;
+Singleton* Singleton::Instance = nullptr;
+
 
 int main()
 {
-	Static::Count++;
 
-	Static* D = new Static();
-
-	Static::Display();
-
-	delete D;
-
-	Static::Display();
-
-
+	Singleton::GetInstance();
 
 	//UEngine* MyEngine = new UEngine();
 
