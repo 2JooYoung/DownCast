@@ -3,6 +3,12 @@
 #include "Actor.h"
 #include "World.h"
 
+UEngine* UEngine::Instance = nullptr;
+
+int UEngine::KeyCode = 0;
+
+
+
 UEngine::UEngine()
 {
 	Init();

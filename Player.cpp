@@ -1,4 +1,5 @@
 #include "Player.h"
+#include "Engine.h"
 
 #include <iostream>
 
@@ -22,6 +23,15 @@ void APlayer::BeginPlay()
 void APlayer::Tick()
 {
 	__super::Tick();
+
+	if (UEngine::KeyCode == 'w')
+	{
+		Y--;
+	}
+	if (UEngine::KeyCode == 's')
+	{
+		Y++;
+	}
 }
 
 void APlayer::Render()

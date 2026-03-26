@@ -36,16 +36,11 @@ Singleton* Singleton::Instance = nullptr;
 
 int main()
 {
+	GEngine->GetInstance();
+ 
+	GEngine->GetWorld()->Load("level01.umap");
 
-	Singleton::GetInstance();
-
-	//UEngine* MyEngine = new UEngine();
-
-	//MyEngine->GetWorld()->Load("level01.umap");
-
-	//MyEngine->Run();
-
-	//delete MyEngine;
+	GEngine->Run();
 
 	return 0;
 }
