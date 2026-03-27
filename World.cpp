@@ -57,29 +57,6 @@ void UWorld::Load(std::string MapName)
 		}
 		Y++;
 	}
-
-
-	//파일 읽어서 생성.
-	//fopen,
-	//ifstream
-
-	//SpawnActor<APlayer>();
-	//SpawnActor<AMonster>()->SetActorLocation(4, 5);
-	//SpawnActor<AGoal>()->SetActorLocation(8, 8);
-
-	//SpawnActor<AWall>()->SetActorLocation(0, 0);
-	//SpawnActor<AWall>()->SetActorLocation(1, 0);
-	//SpawnActor<AWall>()->SetActorLocation(2, 0);
-	//SpawnActor<AWall>()->SetActorLocation(3, 0);
-	//SpawnActor<AWall>()->SetActorLocation(4, 0);
-	//SpawnActor<AWall>()->SetActorLocation(5, 0);
-	//SpawnActor<AWall>()->SetActorLocation(6, 0);
-	//SpawnActor<AWall>()->SetActorLocation(7, 0);
-	//SpawnActor<AWall>()->SetActorLocation(8, 0);
-	//SpawnActor<AWall>()->SetActorLocation(9, 0);
-
-
-	//SpawnActor<AFloor>()->SetActorLocation(3, 5);
 }
 
 void UWorld::Tick()
