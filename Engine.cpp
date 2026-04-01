@@ -88,6 +88,17 @@ void UEngine::Render(int InX, int InY, char InMesh)
 	WriteFile(ScreenBufferHandle[ActiveScreenBufferIndex], MeshString, 1, NULL, NULL);
 }
 
+void UEngine::Render(int InX, int InY, int R, int G, int B)
+{
+	int TileSize = 30;
+	SDL_SetRenderDrawColor(MyRender, R, G, B, 255);
+	//SDL_RenderDrawPoint(MyRender, InX, InY);
+	SDL_Rect MyRect = { InX * TileSize, InY * TileSize, TileSize, TileSize };
+	SDL_RenderFillRect(MyRender, &MyRect);
+}
+
+
+
 void UEngine::Flip()
 {
 	SetConsoleActiveScreenBuffer(ScreenBufferHandle[ActiveScreenBufferIndex]);

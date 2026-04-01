@@ -10,9 +10,6 @@
 class AActor;
 class UWorld;
 
-struct SDL_Window;
-struct SDL_Renderer;
-
 
 class UEngine
 {
@@ -53,6 +50,7 @@ public:
 	void InitBuffer();
 	void Clear();
 	void Render(int InX, int InY, char InMesh);
+	void Render(int InX, int InY, int R, int G, int B);
 	void Flip();
 	void TermBuffer();
 
