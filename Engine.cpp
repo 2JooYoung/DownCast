@@ -2,6 +2,7 @@
 #include <conio.h>
 #include "Actor.h"
 #include "World.h"
+#include "SDL.h"
 
 UEngine* UEngine::Instance = nullptr;
 
@@ -21,6 +22,11 @@ UEngine::~UEngine()
 
 void UEngine::Init()
 {
+	SDL_Init(SDL_INIT_EVERYTHING);
+
+	MyWindow = SDL_CreateWindow("Hello", 100, 100, 1024, 768, SDL_WINDOW_SHOWN);
+	MyRender = SDL_CreateRenderer(MyWindow, -1, 0);
+
 	bIsRunning = true;
 
 	InitBuffer();
@@ -30,6 +36,10 @@ void UEngine::Init()
 
 void UEngine::Term()
 {
+	SDL_DestroyRenderer(MyRender);
+	SDL_DestroyWindow(MyWindow);
+	SDL_Quit();
+
 	delete World;
 	TermBuffer();
 	World = nullptr;
@@ -40,6 +50,8 @@ void UEngine::Run()
 {
 	while (bIsRunning)
 	{
+		SDL_PollEvent(&MyEvent);
+
 		Input();
 		Tick();
 		Render();
@@ -98,10 +110,23 @@ void UEngine::Input()
 
 void UEngine::Tick()
 {
+	if (MyEvent.type == SDL_QUIT)
+	{
+		bIsRunning = false;
+	}
+
 	World->Tick();
 }
 
 void UEngine::Render()
 {
+	//CPU하는건 GPU가 할일을 적는거야. 많이 많이 많이
+	//GPU 한테 보낼 명령어 모음
+	SDL_SetRenderDrawColor(MyRender, 255, 255, 255, 255);
+	SDL_RenderClear(MyRender);
+
 	World->Render();
+
+	//그려CPU -> GPU
+	SDL_RenderPresent(MyRender);
 }

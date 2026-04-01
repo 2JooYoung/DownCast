@@ -2,9 +2,16 @@
 
 #include <vector>
 #include <Windows.h>
+#include "SDL.h"
+
+#pragma comment(lib, "SDL2")
+#pragma comment(lib, "SDL2main")
 
 class AActor;
 class UWorld;
+
+struct SDL_Window;
+struct SDL_Renderer;
 
 
 class UEngine
@@ -58,6 +65,10 @@ protected:
 	class UWorld* World;
 
 	int bIsRunning : 1;
+
+	SDL_Window* MyWindow;
+	SDL_Renderer* MyRender;
+	SDL_Event MyEvent;
 
 };
 
