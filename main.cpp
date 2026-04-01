@@ -22,6 +22,10 @@ int SDL_main(int argc, char* argv[])
 
 	SDL_Window* MyWindow = SDL_CreateWindow("Hello", 100, 100, 640, 480, SDL_WINDOW_SHOWN);
 
+
+	//GPU, 붓
+	SDL_Renderer* MyRender = SDL_CreateRenderer(MyWindow, -1, 0);
+
 	while (true)
 	{ 
 		SDL_Event MyEvent;
@@ -32,7 +36,16 @@ int SDL_main(int argc, char* argv[])
 			break;
 		}
 
+		//GPU 한테 보낼 명령어 모음
+		SDL_SetRenderDrawColor(MyRender, 255, 255, 255, 255);
+		SDL_RenderClear(MyRender);
+
+		SDL_RenderPresent(MyRender);
+
+
 	}
+
+	SDL_DestroyRenderer(MyRender);
 
 	SDL_DestroyWindow(MyWindow);
 
