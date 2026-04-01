@@ -18,6 +18,26 @@ using namespace std;
 
 int SDL_main(int argc, char* argv[])
 {
+	SDL_Init(SDL_INIT_EVERYTHING);
+
+	SDL_Window* MyWindow = SDL_CreateWindow("Hello", 100, 100, 640, 480, SDL_WINDOW_SHOWN);
+
+	while (true)
+	{ 
+		SDL_Event MyEvent;
+		SDL_PollEvent(&MyEvent);
+
+		if (MyEvent.type == SDL_QUIT)
+		{
+			break;
+		}
+
+	}
+
+	SDL_DestroyWindow(MyWindow);
+
+	SDL_Quit();
+
 	return 0;
 }
 
