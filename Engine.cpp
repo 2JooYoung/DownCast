@@ -54,6 +54,11 @@ void UEngine::Run()
 	}
 }
 
+void UEngine::Stop()
+{
+	bIsRunning = false;
+}
+
 
 void UEngine::InitBuffer()
 {

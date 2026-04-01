@@ -33,22 +33,27 @@ void APlayer::Tick()
 
 	if (Event.type == SDL_KEYDOWN)
 	{
+		SDL_Keycode KeyCode = Event.key.keysym.sym;
 		
-		if (Event.key.keysym.sym == SDLK_w)
+		if (KeyCode == SDLK_w)
 		{
 			Y--;
 		}
-		if (Event.key.keysym.sym == SDLK_s)
+		if (KeyCode == SDLK_s)
 		{
 			Y++;
 		}
-		if (Event.key.keysym.sym == SDLK_a)
+		if (KeyCode == SDLK_a)
 		{
 			X--;
 		}
-		if (Event.key.keysym.sym == SDLK_d)
+		if (KeyCode == SDLK_d)
 		{
 			X++;
+		}
+		if (KeyCode == SDLK_ESCAPE)
+		{
+			GEngine->Stop();
 		}
 	}
 	

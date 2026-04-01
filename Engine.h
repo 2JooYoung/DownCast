@@ -36,6 +36,9 @@ public:
 
 	void Run();
 
+	void Stop();
+
+
 	inline UWorld* GetWorld()
 	{
 		return World;
