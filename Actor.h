@@ -19,8 +19,6 @@ public:
 	virtual void Render();
 
 	void SetActorLocation(int NewX, int NewY);
-
-	virtual void Load(std::string Filename);
 	
 	inline const int GetZOrder() 
 	{
