@@ -9,6 +9,7 @@
 
 class AActor;
 class UWorld;
+class UResourceManager;
 
 
 class UEngine
@@ -77,6 +78,11 @@ public:
 		return MyWindow;
 	}
 
+	inline UResourceManager* GetResourceManager() const
+	{
+		return ResourceManager;
+	}
+
 protected:
 	void Input();
 	void Tick();
@@ -93,7 +99,7 @@ protected:
 
 	float DeltaSeconds;
 
-
+	UResourceManager* ResourceManager;
 };
 
 
