@@ -57,7 +57,7 @@ void APlayer::Tick()
 			X++;
 		}
 		if (KeyCode == SDLK_ESCAPE)
-		{
+		{ 
 			GEngine->Stop();
 		}
 	}
@@ -74,6 +74,10 @@ void APlayer::Load(std::string Filename)
 
 void APlayer::Render()
 {
-	//AActor::Render();
-	__super::Render();
+	int TileSize = 30;
+
+	//애니메이션 되게 해줘.
+	SDL_Rect SourceRect = { 0, 0, Image->w / 5, Image->h / 5 };
+	SDL_Rect DestinationRect = { X * TileSize, Y * TileSize, TileSize, TileSize };
+	SDL_RenderCopy(GEngine->GetRenderer(), Texture, &SourceRect, &DestinationRect);
 }
