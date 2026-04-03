@@ -25,6 +25,9 @@ public:
 		return ZOrder;
 	}
 
+	bool isCollision;
+	bool isGenrateOverlap;
+
 protected:
 	int X;
 	int Y;
