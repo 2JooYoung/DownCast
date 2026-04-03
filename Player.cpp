@@ -26,6 +26,16 @@ APlayer::~APlayer()
 {
 }
 
+void APlayer::BeginPlay()
+{
+	__super::BeginPlay();
+
+	OnActorBeginOverlap = [&](AActor* Other) -> void {
+
+	};
+
+}
+
 void APlayer::Tick()
 {
 	__super::Tick();
@@ -67,7 +77,7 @@ void APlayer::Tick()
 	}
 }
 
-//void APlayer::Render()
-//{
+void APlayer::ProcessBeginOverlap(AActor* OtherActor)
+{
 
-//}
+}

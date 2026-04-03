@@ -2,12 +2,6 @@
 #include "Engine.h"
 #include "World.h"
 
-#include "Actor.h"
-#include "Floor.h"
-#include "SpriteComponent.h"
-#include "RenderableComponent.h"
-
-
 
 int SDL_main(int argc, char* argv[])
 {
