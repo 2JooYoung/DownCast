@@ -20,9 +20,6 @@ public:
 
 	int ZOrder = 0;
 
-	int X = 0;
-	int Y = 0;
-
 	SDL_Surface* Image;
 	SDL_Texture* Texture;
 };

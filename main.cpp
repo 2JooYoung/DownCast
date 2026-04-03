@@ -1,20 +1,21 @@
 ﻿#include <iostream>
 #include "Engine.h"
 #include "World.h"
-#include "Component.h"
 
-#include <vector>
+#include "Actor.h"
+#include "Floor.h"
+#include "SpriteComponent.h"
+#include "RenderableComponent.h"
 
 
 
 int SDL_main(int argc, char* argv[])
 {
+	GEngine->GetWorld()->Load("level01.umap");
 
-	//GEngine->GetWorld()->Load("level01.umap");
+	GEngine->Run();
 
-	//GEngine->Run();
-
-	//delete GEngine;
+	delete GEngine;
 
 	return 0;
 }

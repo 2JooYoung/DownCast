@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <vector>	
+#include "Actor.h"
 
 
 struct SDL_Surface;
@@ -28,19 +29,30 @@ public:
 	//	return ZOrder;
 	//}
 
+	std::vector<UComponent*> Components;
 
-	
+	inline int GetX() const
+	{
+		return X;
+	}
+
+	inline int GetY() const
+	{
+		return Y;
+	}
 
 protected:
 	int X;
 	int Y;
 
-	std::vector<UComponent*> Components;
-
 	template<typename T>
 	T* CreateDefaultSubobject(std::string ComponentName)
 	{
-		return new T;
+		T* Temp = new T;
+		Temp->Owner = this;
+		Components.push_back(Temp);
+
+		return Temp; 
 	}
 
 	//int R;

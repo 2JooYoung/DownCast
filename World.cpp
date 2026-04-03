@@ -10,6 +10,8 @@
 #include "Goal.h"
 #include "Wall.h"
 #include "Floor.h"
+#include "RenderableComponent.h"
+#include "SpriteComponent.h"
 
 UWorld::UWorld()
 {
@@ -77,12 +79,12 @@ void UWorld::Load(std::string MapName)
 	SDL_SetWindowSize(GEngine->GetWindow(), (MaxX) * 30, MaxY * 30);
 
 	//Sort();
-	std::sort(Actors.begin(), Actors.end(), 
-		[](AActor* First, AActor* Second) -> int {
-			return 1;
-			//return (First->GetZOrder() < Second->GetZOrder() ? 1 : 0);
-		}
-	);
+	//std::sort(Actors.begin(), Actors.end(), 
+	//	[](AActor* First, AActor* Second) -> int {
+	//		return 1;
+	//		//return (First->GetZOrder() < Second->GetZOrder() ? 1 : 0);
+	//	}
+	//);
 }
 
 void UWorld::Sort()
@@ -113,9 +115,17 @@ void UWorld::Render()
 {
 	GEngine->Clear();
 
+	//모든 액터중에서 Render가능한 컴포넌트가 있으면 렌더 하세요.
 	for (auto Actor : Actors)
 	{
-		//Actor->Render();
+		for (auto Component : Actor->Components)
+		{
+			USpriteComponent* RenderComponent = dynamic_cast<USpriteComponent*>(Component);
+			if (RenderComponent)
+			{
+				RenderComponent->Render();
+			}
+		}
 	}
 
 	GEngine->Flip();
