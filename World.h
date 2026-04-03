@@ -45,6 +45,8 @@ public:
 		return Actors;
 	}
 
+	void BeginPlay();
+
 	void Tick();
 
 	void Render();

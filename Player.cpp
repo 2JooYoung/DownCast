@@ -38,7 +38,7 @@ void APlayer::BeginPlay()
 	__super::BeginPlay();
 
 	OnActorBeginOverlap = [&](AActor* Other) -> void {
-
+		SDL_Log("°ãÄ§ ");
 	};
 
 	//OnActorBeginOverlap = std::bind(&APlayer::ProcessBeginOverlap, this, std::placeholders::_1);
@@ -93,7 +93,7 @@ void APlayer::ReceiveHit(AActor* Other)
 
 void APlayer::ProcessBeginOverlap(AActor* OtherActor)
 {
-
+	SDL_Log("°ãÄ§ ");
 }
 
 

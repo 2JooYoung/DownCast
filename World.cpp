@@ -138,6 +138,14 @@ void UWorld::Sort()
 	//}
 }
 
+void UWorld::BeginPlay()
+{
+	for (auto Actor : Actors)
+	{
+		Actor->BeginPlay();
+	}
+}
+
 void UWorld::Tick()
 {
 	for (auto Actor : Actors)

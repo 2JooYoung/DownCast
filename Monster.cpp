@@ -12,7 +12,6 @@ AMonster::AMonster(int InX, int InY, char InMesh)
 
 	SpriteComponent = CreateDefaultSubobject<USpriteComponent>("Sprite");
 
-
 	Resource TempResource = GEngine->GetResourceManager()->LoadTexture("Data/monster.bmp", true, 255, 255, 255);
 	SpriteComponent->Image = TempResource.Image;
 	SpriteComponent->Texture = TempResource.Texture;
