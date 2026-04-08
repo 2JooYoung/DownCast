@@ -14,6 +14,7 @@
 #include "SpriteComponent.h"
 #include "GameMode.h"
 #include "YoudieActor.h"
+#include "BGActor.h"
 
 UWorld::UWorld()
 {
@@ -85,7 +86,9 @@ void UWorld::Load(std::string MapName)
 
 	SDL_SetWindowSize(GEngine->GetWindow(), (MaxX) * 30, MaxY * 30);
 
+	//Map에 추가 해야 되는데 작업할게 많아서 패스한다.
 	SpawnActor<AYoudieActor>();
+	SpawnActor<ABGActor>();
 
 
 	//Sort();
