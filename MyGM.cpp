@@ -34,12 +34,18 @@ void AMyGM::GameOver()
 
 void AMyGM::GameComplete()
 {
-	static bool bGameComplte = false;
+	static bool bGameComplete = false;
 
-	if (!bGameComplte)
+	if (!bGameComplete)
 	{
+		AYoudieActor* TextActor = dynamic_cast<AYoudieActor*>(GEngine->GetWorld()->GetActorOfClass<AYoudieActor>());
+		if (TextActor)
+		{
+			TextActor->TextRenderComponent->bIsVisible = true;
+		}
+
 		SDL_Log("Game Complete");
 
-		bGameComplte = true;
+		bGameComplete = true;
 	}
 }

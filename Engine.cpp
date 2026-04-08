@@ -25,6 +25,8 @@ void UEngine::Init()
 	MyRenderer = SDL_CreateRenderer(MyWindow, -1, SDL_RENDERER_PRESENTVSYNC | SDL_RENDERER_ACCELERATED | SDL_RENDERER_TARGETTEXTURE);
 	//MyRender = SDL_CreateRenderer(MyWindow, -1, SDL_RENDERER_PRESENTVSYNC | SDL_RENDERER_SOFTWARE);
 
+	Mix_OpenAudio(MIX_DEFAULT_FREQUENCY, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 4096);
+
 	TTF_Init();
 
 	Font = TTF_OpenFont("./Data/font.ttf", 32);
@@ -46,6 +48,8 @@ void UEngine::Term()
 	{
 		TTF_CloseFont(Font);
 	}
+
+	Mix_CloseAudio();
 
 	TTF_Quit();
 	SDL_DestroyRenderer(MyRenderer);
